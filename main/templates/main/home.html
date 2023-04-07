@@ -1,0 +1,11 @@
+{% extends 'main/base.html' %}
+{% load main_tags %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1 class="title">{{ title }}</h1>
+<ul class="level_01">
+    {% show_menu %}
+</ul>
+{% endblock %}

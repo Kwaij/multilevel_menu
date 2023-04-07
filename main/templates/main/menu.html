@@ -1,0 +1,19 @@
+{% for m_01 in menu_01 %}
+<li class="level_01"><a href="{{ m_01.get_absolute_url }}">{{ m_01.name }}</a>
+    <ul class="level_02">
+        {% for m_02 in menu_02 %}
+        {% if m_02.cat.name == m_01.name %}
+        <li class="level_02"><a href="{{ m_02.get_absolute_url }}">{{ m_02.name }}</a>
+            <ul class="level_03">
+                {% for m_03 in menu_03 %}
+                {% if m_03.cat.name == m_02.name %}
+                <li class="level_03"><a href="{{ m_03.get_absolute_url }}">{{ m_03.name }}</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</li>
+{% endfor %}

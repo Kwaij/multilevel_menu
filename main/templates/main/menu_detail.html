@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<a class="go_home" href="{% url 'home' %}">Главная</a>
+{% if parent_parent %}
+<p class="inline">/</p><a class="go_home" href="{{ parent_parent.get_absolute_url }}">{{ parent_parent }}</a>
+{% endif %}
+{% if parent %}
+<p class="inline">/</p><a class="go_home" href="{{ parent.get_absolute_url }}">{{ parent }}</a>
+{% endif %}
+<h1 class="title">{{ title }}</h1>
+<ul>
+    {% for m_02 in menu_02 %}
+    <li><a href="{{ m_02.get_absolute_url }}">{{ m_02.name }}</a></li>
+    {% endfor %}
+</ul>
+<ul>
+    {% for m_03 in menu_03 %}
+    <li><a href="{{ m_03.get_absolute_url }}">{{ m_03.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
